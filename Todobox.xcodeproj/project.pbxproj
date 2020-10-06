@@ -14,6 +14,7 @@
 		D7D90F12252AB5720012F773 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7D90F10252AB5720012F773 /* LaunchScreen.storyboard */; };
 		D7D90F1F252AFF7C0012F773 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D90F1E252AFF7C0012F773 /* Task.swift */; };
 		D7D90F2E252B64A20012F773 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7D90F2D252B64A20012F773 /* Main.storyboard */; };
+		D7D90F32252C34170012F773 /* TaskEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7D90F31252C34170012F773 /* TaskEditorViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		D7D90F13252AB5720012F773 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D7D90F1E252AFF7C0012F773 /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		D7D90F2D252B64A20012F773 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		D7D90F31252C34170012F773 /* TaskEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskEditorViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +63,7 @@
 				D7D90F05252AB56D0012F773 /* AppDelegate.swift */,
 				D7D90F07252AB56D0012F773 /* SceneDelegate.swift */,
 				D7D90F09252AB56D0012F773 /* TaskListViewController.swift */,
+				D7D90F31252C34170012F773 /* TaskEditorViewController.swift */,
 				D7D90F0E252AB5720012F773 /* Assets.xcassets */,
 				D7D90F10252AB5720012F773 /* LaunchScreen.storyboard */,
 				D7D90F13252AB5720012F773 /* Info.plist */,
@@ -144,6 +147,7 @@
 				D7D90F0A252AB56D0012F773 /* TaskListViewController.swift in Sources */,
 				D7D90F06252AB56D0012F773 /* AppDelegate.swift in Sources */,
 				D7D90F08252AB56D0012F773 /* SceneDelegate.swift in Sources */,
+				D7D90F32252C34170012F773 /* TaskEditorViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
