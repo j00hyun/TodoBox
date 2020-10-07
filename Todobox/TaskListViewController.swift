@@ -121,12 +121,14 @@ extension TaskListViewController: UITableViewDataSource {
     /// table : section -> cell - row
     /// section 안에 들어갈 table row 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        print("할일 개수 카운팅")
         return self.tasks.count
     }
     
     /// "cell"이라는 cell에  데이터 삽입
     /// cell 개수 만큼 실행
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        print("할일 메모리 할당")
         /// dequeueReusableCell : 현재 페이지에 나타나는 셀만 메모리 할당 (스크롤 내리면 원래 할당 된것 제거 후 다음 것 할당)
         /// "cell" : 재사용할 객체
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell")!
@@ -149,14 +151,46 @@ extension TaskListViewController: UITableViewDataSource {
 
 extension TaskListViewController: UITableViewDelegate {
     
-    /// 특정 할일 완수 여부 관리
+    /// 특정 할일 완수 여부 관리 - 특정 행 선택 관리
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("할일 완수 여부 변경")
         var task = self.tasks[indexPath.row]
         task.done = !task.done
         self.tasks[indexPath.row] = task
         self.tableView.reloadRows(at: [indexPath], with: .automatic)
     }
     
+    /// 특정 위치의 행을 재정렬 할 수 있는지 묻는 메소드
+    /// Edit 화면으로 전환시 row 개수만큼 메소드 실행
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        print("행 재정렬 가능한 상태")
+        return true
+    }
+    
+    /// 특정 위치의 행을 다른 위치로 옮기는 메소드
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        print("행 재정렬 진행중")
+        var tasks = self.tasks
+        let task = tasks[sourceIndexPath.row]
+        tasks.remove(at: sourceIndexPath.row)
+        tasks.insert(task, at: destinationIndexPath.row)
+        self.tasks = tasks
+    }
+    
+    // 특정 위치의 행을 삭제 요청
+    func tableView(_ tableView: UITableView,
+                   commit editingStyle: UITableViewCell.EditingStyle,
+                   forRowAt indexPath: IndexPath) {
+        print("특정 행 삭제중")
+        tableView.beginUpdates()
+        self.tasks.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+        tableView.endUpdates()
+        
+        if self.tasks.isEmpty {
+            self.doneButtonDidTap()
+        }
+    }
     
 }
 
